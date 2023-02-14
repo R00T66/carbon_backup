@@ -9,8 +9,8 @@ local getgenv = getgenv or function() return _G end -- idk I guess some shitty e
 
 local settings_autoFormatTabs = getgenv()["autoFormatTabs"] or true
 
-local settings_user = getgenv()["user"] or "WoffleTbh"
-local settings_repo = getgenv()["repo"] or "CarbonUI"
+local settings_user = getgenv()["user"] or "R00T66"
+local settings_repo = getgenv()["repo"] or "carbon_backup"
 local settings_theme = getgenv()["theme"] or "tokyonight-storm"
 
 -----------
