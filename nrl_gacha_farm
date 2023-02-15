@@ -17,7 +17,8 @@ if Accn ~= false then
 end
 
 local GetSilver = function()
-   local Silver = (tonumber(game:GetService("Players").LocalPlayer.PlayerGui.CurrencyGui.Silver.Value.Text:gsub(",", "")))
+   local SilverVal = game:GetService("Players").LocalPlayer.PlayerGui.CurrencyGui.Silver.Value.Text:gsub(",", "")
+   local Silver = tonumber(SilverVal)
    
    return Silver
 end
