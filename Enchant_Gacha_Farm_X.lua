@@ -50,6 +50,11 @@ local Hop = function()
 end
 
 game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChanged").OnClientEvent:Connect(function(self)
+    local ChildAdded;
+    ChildAdded = game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(self)
+        warn("Rolled", tostring(self.Name))
+        ChildAdded:Disconnect()
+    end)
     GemGacha()
 end)
 
