@@ -39,7 +39,7 @@ local Hop = function()
     
     for i, v in pairs(Servers:GetChildren()) do
        if v.JobId.Value ~= game.JobId then
-          Valid[#Vaid + 1] = v.Name
+          Valid[#Valid + 1] = v.Name
        end
     end
     
