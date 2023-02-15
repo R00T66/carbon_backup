@@ -5,7 +5,7 @@ if game.PlaceId ~= 11412701341 then
    return
 end
 
-local Accn = tonumber(getgenv()["UserID"]) or {}
+local Accn = getgenv()["UserID"] or {}
 local Slot = tonumber(getgenv()["Slot"]) or tonumber(1)
 local SpawnedIn = false
 local SlotPicked = false
