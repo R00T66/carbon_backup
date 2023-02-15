@@ -11,7 +11,7 @@ local SpawnedIn = false
 local SlotPicked = false
 
 if Accn ~= false then
-   if game.Players.LocalPlayer.UserId == Accn then
+   if game.Players.LocalPlayer.UserId ~= Accn then
       return
    end
 end
