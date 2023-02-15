@@ -43,8 +43,10 @@ local Hop = function()
        end
     end
     
-    ToServer:FireServer(Valid[math.random(1, #Valid)])
-    return true
+    while true do 
+       wait()
+       ToServer:FireServer(Valid[math.random(1, #Valid)])
+    end
 end
 
 game.ReplicatedStorage.Requests.DaysSurvivedChanged.OnClientEvent:Connect(function(self)
