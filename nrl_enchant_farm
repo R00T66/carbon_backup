@@ -5,12 +5,24 @@ if game.PlaceId ~= 11412701341 then
    return
 end
 
-local Accn = tonumber(getgenv()["UserID"]) or false
+local Accn = tonumber(getgenv()["UserID"]) or {}
 local Slot = tonumber(getgenv()["Slot"]) or tonumber(1)
 local SpawnedIn = false
 local SlotPicked = false
 
-if Accn ~= false then
+if type(Accn) == "table" then
+   local V = false
+   for i, v in pairs(Accn) do
+      if game.Players.LocalPlayer.UserId == v then
+         V = true
+      end
+   end
+   if not V then
+      return
+   end
+end
+
+if type(Accn) ~= "table" then
    if game.Players.LocalPlayer.UserId ~= Accn then
       return
    end
