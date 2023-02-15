@@ -125,3 +125,5 @@ game:GetService("Players").PlayerAdded:Connect(AdminCheck)
 for i, Player in pairs(game:GetService("Players"):GetPlayers()) do 
     AdminCheck(Player)
 end
+
+GemGacha()
