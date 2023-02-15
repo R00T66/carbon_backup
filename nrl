@@ -37,6 +37,8 @@ end
 
 local GemGacha = function()
    repeat wait() until game.Players.LocalPlayer.Character
+   repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+   wait()
    local NPCS = game:GetService("Workspace"):WaitForChild("NPCs")
    local Xena = NPCS:WaitForChild("Xena")
    local Click = Xena:WaitForChild("ClickDetector")
@@ -44,7 +46,7 @@ local GemGacha = function()
    local Dialogue = Requests:WaitForChild("Dialogue")
    local Silv = GetSilver()
    
-   warn("Silver Remaining:", Silv)
+   warn("Silver Rolling With:", Silv)
    
    if Silv < 250 then
       return "Shortage"
@@ -87,6 +89,8 @@ game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChange
        ChildAdded:Disconnect()
        game.Players.LocalPlayer:Kick("Silver Shortage")
     end
+    wait(5)
+    ChildAdded:Disconnect()
 end)
 
 game.RunService.RenderStepped:Connect(function(self)
