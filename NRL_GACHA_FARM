@@ -23,6 +23,7 @@ local GetSilver = function()
 end
 
 local GemGacha = function()
+   repeat wait() until game.Players.LocalPlayer.Character
    local NPCS = game:GetService("Workspace"):WaitForChild("NPCs")
    local Xena = NPCS:WaitForChild("Xena")
    local Click = Xena:WaitForChild("ClickDetector")
