@@ -16,12 +16,25 @@ if Accn ~= false then
    end
 end
 
+local GetSilver = function()
+   local Silver = (tonumber(game:GetService("Players").LocalPlayer.PlayerGui.CurrencyGui.Silver.Value.Text:gsub(",", "")))
+   
+   return Silver
+end
+
 local GemGacha = function()
    local NPCS = game:GetService("Workspace"):WaitForChild("NPCs")
    local Xena = NPCS:WaitForChild("Xena")
    local Click = Xena:WaitForChild("ClickDetector")
    local Requests = game:GetService("ReplicatedStorage"):WaitForChild("Requests")
    local Dialogue = Requests:WaitForChild("Dialogue")
+   local Silv = GetSilver()
+   
+   warn("Silver Remaining:", Silv)
+   
+   if Silv < 250 then
+      return "Shortage"
+   end
    
    c,t,h=game.Players.LocalPlayer.Character,0,game.Players.LocalPlayer.Character.Humanoid;
    while t<0.5 do 
@@ -55,7 +68,11 @@ game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChange
         warn("Rolled", tostring(self.Name))
         ChildAdded:Disconnect()
     end)
-    GemGacha()
+    local Response = GemGacha()
+    if Response == "Shortage" then
+       ChildAdded:Disconnect()
+       game.Players.LocalPlayer:Kick("Silver Shortage")
+    end
 end)
 
 game.RunService.RenderStepped:Connect(function(self)
