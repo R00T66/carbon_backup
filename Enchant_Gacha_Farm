@@ -49,7 +49,7 @@ local Hop = function()
     end
 end
 
-game.ReplicatedStorage.Requests.DaysSurvivedChanged.OnClientEvent:Connect(function(self)
+game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChanged").OnClientEvent:Connect(function(self)
     GemGacha()
 end)
 
