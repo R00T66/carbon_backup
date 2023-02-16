@@ -54,11 +54,12 @@ local GemGacha = function()
    
    c,t,h=game.Players.LocalPlayer.Character,0,game.Players.LocalPlayer.Character.Humanoid;
    while t<0.5 do 
-       c:PivotTo(Xena.Torso.CFrame);
+       c:PivotTo(Xena.Torso.CFrame * CFrame.new(0,-5, 0));
        fireclickdetector(Click);
        Dialogue:FireServer({["choice"] = "Sure, I'll pay."});
        t+=task.wait()
    end  
+   return true
 end
 
 local Hop = function()
@@ -82,9 +83,17 @@ game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChange
     local ChildAdded;
     ChildAdded = game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(self)
         warn("Rolled", tostring(self.Name))
+        if getgenv()["Hook"] then
+           syn.request({
+             Url = getgenv()["Hook"],
+             Method = "POST",
+             Headers = {["Content-Type"] = "application/json"},
+             Body = game:GetService("HttpService"):JSONEncode({content = tostring(game.Players.LocalPlayer.Name .. " Rolled " .. self.Name .. " At Day " .. tostring(self))
+           })
+        end
         ChildAdded:Disconnect()
     end)
-    local Response = GemGacha()
+    local Response = GemGacha(self)
     if Response == "Shortage" then
        ChildAdded:Disconnect()
        game.Players.LocalPlayer:Kick("Silver Shortage")
