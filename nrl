@@ -156,3 +156,4 @@ for i, Player in pairs(game:GetService("Players"):GetPlayers()) do
 end
 
 GemGacha()
+warn("\nEnchant Gacha Bot\nVersion | 1.0.0")
