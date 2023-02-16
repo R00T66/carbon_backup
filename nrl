@@ -79,8 +79,10 @@ local Hop = function()
     end
 end
 
-game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChanged").OnClientEvent:Connect(function(self)
-    local ChildAdded;
+game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChanged").OnClientEvent:Connect(function(day)
+    
+    
+local ChildAdded;
     ChildAdded = game.Players.LocalPlayer.Backpack.ChildAdded:Connect(function(self)
         warn("Rolled", tostring(self.Name))
         if getgenv()["Hook"] then
@@ -88,7 +90,7 @@ game.ReplicatedStorage:WaitForChild("Requests"):WaitForChild("DaysSurvivedChange
              Url = getgenv()["Hook"],
              Method = "POST",
              Headers = {["Content-Type"] = "application/json"},
-             Body = game:GetService("HttpService"):JSONEncode({content = tostring(game.Players.LocalPlayer.Name .. " Rolled " .. self.Name .. " At Day " .. tostring(self))
+             Body = game:GetService("HttpService"):JSONEncode({content = tostring(game.Players.LocalPlayer.Name .. " Rolled " .. self.Name .. " At Day " .. day)})
            })
         end
         ChildAdded:Disconnect()
