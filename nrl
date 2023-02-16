@@ -55,7 +55,7 @@ local GemGacha = function()
    
    c,t,h=game.Players.LocalPlayer.Character,0,game.Players.LocalPlayer.Character.Humanoid;
    while t<0.5 do 
-       c:PivotTo(Xena.Torso.CFrame * CFrame.new(0,-5, 0));
+       c:PivotTo(Xena.Torso.CFrame * CFrame.new(0, 0, 0));
        fireclickdetector(Click);
        Dialogue:FireServer({["choice"] = "Sure, I'll pay."});
        t+=task.wait()
