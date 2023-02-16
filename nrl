@@ -157,4 +157,4 @@ for i, Player in pairs(game:GetService("Players"):GetPlayers()) do
 end
 
 GemGacha()
-warn("\nEnchant Gacha Bot\nVersion | 1.0.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
+warn("\nEnchant Gacha Bot\nVersion | 1.1.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
