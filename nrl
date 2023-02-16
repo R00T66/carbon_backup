@@ -29,16 +29,16 @@ if type(Accn) ~= "table" then
    end
 end
 
+if type(Slot) ~= "table" then
+   Slot = 1
+end
+
 if type(Slot) == "table" then
    if Slot[game.Players.LocalPlayer.UserId] ~= nil then
        Slot = Slot[game.Players.LocalPlayer.UserId]
    else
        Slot = 1
    end
-end
-
-if type(Slot) ~= "table" then
-   Slot = 1
 end
 
 local GetSilver = function()
@@ -169,4 +169,4 @@ for i, Player in pairs(game:GetService("Players"):GetPlayers()) do
 end
 
 GemGacha()
-warn("\nEnchant Gacha Bot\nVersion | 1.2.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
+warn("\nEnchant Gacha Bot\nVersion | 1.3.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
