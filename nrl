@@ -6,7 +6,7 @@ if game.PlaceId ~= 11412701341 then
 end
 
 local Accn = getgenv()["UserID"] or {}
-local Slot = tonumber(getgenv()["Slot"]) or tonumber(1)
+local Slot = getgenv()["Slot"] or 1
 local Hook = getgenv()["Hook"] or "..."
 local SpawnedIn = false
 local SlotPicked = false
@@ -27,6 +27,18 @@ if type(Accn) ~= "table" then
    if game.Players.LocalPlayer.UserId ~= Accn then
       return
    end
+end
+
+if type(Slot) == "table" then
+   if Slot[game.Players.LocalPlayer.UserId] ~= nil then
+       Slot = Slot[game.Players.LocalPlayer.UserId]
+   else
+       Slot = 1
+   end
+end
+
+if type(Slot) ~= "table" then
+   Slot = 1
 end
 
 local GetSilver = function()
@@ -157,4 +169,4 @@ for i, Player in pairs(game:GetService("Players"):GetPlayers()) do
 end
 
 GemGacha()
-warn("\nEnchant Gacha Bot\nVersion | 1.1.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
+warn("\nEnchant Gacha Bot\nVersion | 1.2.0\nHook | " .. tostring(Hook) .. "\nSlot | " .. tostring(Slot) .. "\nAccount | " .. tostring(game.Players.LocalPlayer.Name))
